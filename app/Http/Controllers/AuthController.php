@@ -12,10 +12,10 @@ class AuthController extends Controller
     public function showRegister(){
         return view('auth.register');
     }
-
     public function showLogin() {
         return view('auth.login');
     }
+
     public function register(Request $request){
         $validado = $request->validate([
             'name' => 'required|string|max:255',
@@ -27,7 +27,7 @@ class AuthController extends Controller
 
         return redirect()->route('lista.index');
     }
-
+    
     public function login(Request $request) {
         $validado = $request->validate([
             'email' => 'required|email',

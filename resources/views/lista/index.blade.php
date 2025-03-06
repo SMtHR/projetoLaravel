@@ -14,5 +14,6 @@
         @endforeach
     </ul>
 
+    <!-- Adiciona paginação -->
     {{ $produtos->links() }}
 </x-layout>

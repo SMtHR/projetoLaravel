@@ -17,15 +17,20 @@
         <nav>
             <h1>Lista de Produtos</h1>
             <a href="{{ route('lista.index') }}">Todos os produtos</a>
-            <a href="{{ route('lista.adicionar') }}">Adicionar novos produtos</a>
 
+            @guest
             <a href="{{ route('show.login') }}" class="btn">Login</a>
             <a href="{{ route('show.register') }}" class="btn">Registre-se</a>
+            @endguest
 
+            @auth
+            <span class="border-r-2 pr-2">Olá, {{Auth::user()->name}}</span>
+            <a href="{{ route('lista.adicionar') }}">Adicionar novos produtos</a>
             <form action="{{route('logout')}}" method="POST" class="m-0">
                 @csrf
                 <button class="btn">Logout</button>
             </form>
+            @endauth
         </nav>
     </header>
 
